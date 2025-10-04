@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: deepl-mcp-server
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DEEPL_API_KEY
+        sync: false  # Set this manually in Render dashboard
+      - key: MCP_ACCESS_TOKEN  
+        value: mcp_token_professional_airia_deepl_2024
